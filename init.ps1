@@ -11,11 +11,11 @@ foreach ($dir in @($backupDir, $configDir)) {
 
 # Config Definition: "Target" = "LinkLocation"
 $configMap = @{
-  "$env:USERPROFILE\.config\yasb\config.yaml" = "$configDir\yasb-config.yaml"
-  "$env:USERPROFILE\.config\yasb\styles.css"  = "$configDir\yasb-styles.css"
-  "$env:APPDATA\Code\User\settings.json" = "$configDir\vscode-settings.json"
-  "$env:APPDATA\Code\User\keybindings.json" = "$configDir\vscode-keybindings.json"
-  "$env:APPDATA\Code\User\snippets\" = "$configDir\vscode-snippets\"
+  "$env:USERPROFILE\.config\yasb\config.yaml" = "$configDir\yasb\config.yaml"
+  "$env:USERPROFILE\.config\yasb\styles.css"  = "$configDir\yasb\styles.css"
+  "$env:APPDATA\Code\User\settings.json" = "$configDir\vscode\settings.json"
+  "$env:APPDATA\Code\User\keybindings.json" = "$configDir\vscode\keybindings.json"
+  "$env:APPDATA\Code\User\snippets\" = "$configDir\vscode\snippets\"
 }
 
 foreach ($target in $configMap.Keys) { 
