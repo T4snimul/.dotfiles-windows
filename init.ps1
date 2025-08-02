@@ -27,7 +27,7 @@ foreach ($target in $configMap.Keys) {
 
   if ($item -and $item.Attributes -notmatch 'ReparsePoint') {
     if (-not (Test-Path $backupPath)) {
-      Move-Item $target $backupPath
+      Move-Item $target $backupPath -Recurse -Force
       Write-Host "Moved backup: $target → $backupPath"
     }
     else {
