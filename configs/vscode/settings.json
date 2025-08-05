@@ -1,3 +1,119 @@
+// ╔═════════════════════════════════════════════════════════════╗
+// ║                                                             ║
+// ║  _    __   _____          ______   ____     ____     ______ ║
+// ║ | |  / /  / ___/         / ____/  / __ \   / __ \   / ____/ ║
+// ║ | | / /   \__ \         / /      / / / /  / / / /  / __/    ║
+// ║ | |/ /   ___/ /        / /___   / /_/ /  / /_/ /  / /___    ║
+// ║ |___/   /____/         \____/   \____/  /_____/  /_____/    ║
+// ║                                                             ║
+// ║                                                             ║
+// ║                          Settings                           ║
+// ║                     — Tasnimul Hasan —                      ║
+// ║                                                             ║
+// ║                                                             ║
+// ║             "Crafting code with precision,                  ║
+// ║                 curiosity, and a touch of soul."            ║
+// ║                                                             ║
+// ╚═════════════════════════════════════════════════════════════╝
+//
+// ───────────────────────────────────────────────────────────────
+//                         Table of Contents
+// ───────────────────────────────────────────────────────────────
+//  1. Editing Experience
+//  2. Layout & Navigation
+//  3. Cursor & Scrolling
+//  4. Theming & Styling
+//  5. Language-specific Formatters
+//  6. Vim Mode Keybindings & Settings
+// ───────────────────────────────────────────────────────────────
+
 {
-    "editor.fontSize": 22
+  // ========== 1. Editing Experience ==========
+  "editor.fontSize": 22, // Bigger, comfy font size
+  "editor.lineNumbers": "relative", // Relative line numbers for better motion
+  "editor.autoIndent": "full", // Better auto-indent on paste
+  "editor.formatOnSave": true, // Let Prettier handle the mess
+  "editor.formatOnPaste": true,
+  "editor.tabSize": 2, // Thin tabs
+  "editor.trimAutoWhitespace": true, // No trailing space clutter
+  "files.autoSave": "onWindowChange", // I'm forgetful
+
+  // ========== 2. Layout & Navigation ==========
+  "workbench.startupEditor": "none", // No welcome page
+  "editor.stickyScroll.enabled": false, // Disable sticky headers
+  "breadcrumbs.enabled": false, // Hide breadcrumbs
+  "editor.minimap.enabled": false, // Hide minimap
+  "explorer.confirmDragAndDrop": false, // no drag-drop confirm
+  "explorer.confirmDelete": false, // no delete confirm
+  "files.trimTrailingWhitespace": true, // trim trailing spaces in files
+  "files.insertFinalNewline": true, // add newline at EOF (End Of File)
+  "editor.renderLineHighlight": "all",
+  "editor.bracketPairColorization.enabled": true,
+  "workbench.sideBar.location": "right",
+  "workbench.editor.enablePreview": false,
+
+  // ========== 3. Cursor & Scrolling ==========
+  "editor.cursorSurroundingLines": 2, // Lines above/below cursor
+  "editor.cursorSurroundingLinesStyle": "default", // Trigger when moving
+  "editor.fastScrollSensitivity": 5, // Scroll faster with Shift
+  "editor.smoothScrolling": true, // Nice smooth scroll
+  "editor.renderWhitespace": "boundary", // Subtle whitespace hints
+  "editor.cursorBlinking": "solid",
+
+  // ========== 4. Theming & Styling ==========
+  "workbench.iconTheme": "symbols", // Minimal icon theme
+  "workbench.colorTheme": "Ardent (contrast 0, chroma 0, lightness 1)",
+
+  "workbench.colorCustomizations": {
+    "[Ardent (contrast 0, chroma 0, lightness 1)]": {
+      "editorLineNumber.activeForeground": "#c193d4",
+      "editorCursor.foreground": "#c193d4",
+      "editorCursor.background": "#0f0712"
+    }
+  },
+
+  "editor.tokenColorCustomizations": {
+    "[Ardent (contrast 0, chroma 0, lightness 1)]": {
+      "comments": "#4e525a", // Soft grey for comments
+      "textMateRules": [
+        {
+          "scope": "support.type.property-name.json", // JSON keys
+          "settings": {
+            "foreground": "#E2725B" // Eye-pleasing terracotta red
+          }
+        }
+      ]
+    }
+  },
+
+  // ========== 5. Language-specific Formatters ==========
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  // ========== 6. VIM Mode Keybindings & Settings ==========
+  "vim.leader": " ", // Set space as leader key
+
+  // --- Normal Mode Keybindings ---
+  "vim.normalModeKeyBindings": [
+    { "before": ["j"], "after": ["g", "j"] }, // Wrap-aware down
+    { "before": ["k"], "after": ["g", "k"] }, // Wrap-aware up
+    { "before": ["<leader>", "y"], "after": ["\"", "+", "y", "y"] }, // Yank line to system clipboard
+    { "before": ["<leader>", "p"], "after": ["\"", "+", "p"] } // Paste from system clipboard
+  ],
+
+  // --- Visual Mode Keybindings ---
+  "vim.visualModeKeyBindings": [
+    { "before": ["j"], "after": ["g", "j"] },
+    { "before": ["k"], "after": ["g", "k"] },
+    { "before": ["<leader>", "y"], "after": ["\"", "+", "y"] },
+    { "before": ["<leader>", "p"], "after": ["\"", "+", "p"] }
+  ],
+
+  // --- Highlight Yank Settings ---
+  "vim.highlightedyank.enable": true,
+  "vim.highlightedyank.color": "hsla(282, 25%, 80%, 0.3)",
+  "vim.highlightedyank.textColor": "hsl(282, 43%, 70%)",
+  "vim.highlightedyank.duration": 300
+  // ========== End ==========
 }
