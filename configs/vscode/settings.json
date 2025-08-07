@@ -114,6 +114,8 @@
   "vim.highlightedyank.enable": true,
   "vim.highlightedyank.color": "hsla(282, 25%, 80%, 0.3)",
   "vim.highlightedyank.textColor": "hsl(282, 43%, 70%)",
-  "vim.highlightedyank.duration": 300
+  "vim.highlightedyank.duration": 300,
+  // ========== Added from UI ==========
+  "git.openRepositoryInParentFolders": "never"
   // ========== End ==========
 }

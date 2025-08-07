@@ -11,14 +11,15 @@ foreach ($dir in @($backupDir, $configDir)) {
 
 # Config Definition: "Target" = "LinkLocation"
 $configMap = @{
-  "$env:USERPROFILE\.config\yasb\config.yaml" = "$configDir\yasb\config.yaml"
-  "$env:USERPROFILE\.config\yasb\styles.css"  = "$configDir\yasb\styles.css"
-  "$env:APPDATA\Code\User\settings.json" = "$configDir\vscode\settings.json"
-  "$env:APPDATA\Code\User\keybindings.json" = "$configDir\vscode\keybindings.json"
-  "$env:APPDATA\Code\User\snippets\" = "$configDir\vscode\snippets\"
+  "$env:USERPROFILE\.config\yasb\config.yaml"                              = "$configDir\yasb\config.yaml"
+  "$env:USERPROFILE\.config\yasb\styles.css"                               = "$configDir\yasb\styles.css"
+  "$env:APPDATA\Code\User\settings.json"                                   = "$configDir\vscode\settings.json"
+  "$env:APPDATA\Code\User\keybindings.json"                                = "$configDir\vscode\keybindings.json"
+  "$env:APPDATA\Code\User\snippets\"                                       = "$configDir\vscode\snippets\"
+  "$env:USERPROFILE\Documents\PowerShell\Microsoft.PowerShell_profile.ps1" = "$configDir\pwsh\Microsoft.PowerShell_profile.ps1"
 }
 
-foreach ($target in $configMap.Keys) { 
+foreach ($target in $configMap.Keys) {
   $source = $configMap[$target]
   $fileName = Split-Path $target -Leaf
   $backupPath = Join-Path $backupDir $fileName
@@ -27,7 +28,11 @@ foreach ($target in $configMap.Keys) {
 
   if ($item -and $item.Attributes -notmatch 'ReparsePoint') {
     if (-not (Test-Path $backupPath)) {
-      Move-Item $target $backupPath -Recurse -Force
+      if ((Test-Path $backupPath) -and ((Get-Item $path).PSIsContainer)) {
+        Move-Item $target $backupPath -Recurse -Force
+      } else {
+        Move-Item $target $backupPath -Force
+      }
       Write-Host "Moved backup: $target → $backupPath"
     }
     else {
