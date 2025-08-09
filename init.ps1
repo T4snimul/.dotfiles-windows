@@ -17,6 +17,7 @@ $configMap = @{
   "$env:APPDATA\Code\User\keybindings.json"                                = "$configDir\vscode\keybindings.json"
   "$env:APPDATA\Code\User\snippets\"                                       = "$configDir\vscode\snippets\"
   "$env:USERPROFILE\Documents\PowerShell\Microsoft.PowerShell_profile.ps1" = "$configDir\pwsh\Microsoft.PowerShell_profile.ps1"
+  "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\Settings.json" = "$configDir\wt\settings.json"
 }
 
 foreach ($target in $configMap.Keys) {
