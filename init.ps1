@@ -11,14 +11,16 @@ foreach ($dir in @($backupDir, $configDir)) {
 
 # Config Definition: "Target" = "LinkLocation"
 $configMap = @{
-  "$env:USERPROFILE\.config\yasb\config.yaml"                              = "$configDir\yasb\config.yaml"
-  "$env:USERPROFILE\.config\yasb\styles.css"                               = "$configDir\yasb\styles.css"
-  "$env:APPDATA\Code\User\settings.json"                                   = "$configDir\vscode\settings.json"
-  "$env:APPDATA\Code\User\keybindings.json"                                = "$configDir\vscode\keybindings.json"
-  "$env:APPDATA\Code\User\snippets\"                                       = "$configDir\vscode\snippets\"
-  "$env:USERPROFILE\Documents\PowerShell\Microsoft.PowerShell_profile.ps1" = "$configDir\pwsh\Microsoft.PowerShell_profile.ps1"
+  "$env:USERPROFILE\.config\yasb\config.yaml"                                                   = "$configDir\yasb\config.yaml"
+  "$env:USERPROFILE\.config\yasb\styles.css"                                                    = "$configDir\yasb\styles.css"
+  "$env:USERPROFILE\.config\whkdrc"                                                             = "$configDir\komorebi\whkdrc"
+  "$env:USERPROFILE\komorebi.json"                                                              = "$configDir\komorebi\komorebi.json"
+  "$env:APPDATA\Code\User\settings.json"                                                        = "$configDir\vscode\settings.json"
+  "$env:APPDATA\Code\User\keybindings.json"                                                     = "$configDir\vscode\keybindings.json"
+  "$env:APPDATA\Code\User\snippets\"                                                            = "$configDir\vscode\snippets\"
+  "$env:USERPROFILE\Documents\PowerShell\Microsoft.PowerShell_profile.ps1"                      = "$configDir\pwsh\Microsoft.PowerShell_profile.ps1"
   "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\Settings.json" = "$configDir\wt\settings.json"
-  "$env:USERPROFILE\.config\starship.toml" = "$configDir\starship\starship.toml"
+  "$env:USERPROFILE\.config\starship.toml"                                                      = "$configDir\starship\starship.toml"
 }
 
 foreach ($target in $configMap.Keys) {
@@ -32,7 +34,8 @@ foreach ($target in $configMap.Keys) {
     if (-not (Test-Path $backupPath)) {
       if ((Test-Path $backupPath) -and ((Get-Item $path).PSIsContainer)) {
         Move-Item $target $backupPath -Recurse -Force
-      } else {
+      }
+      else {
         Move-Item $target $backupPath -Force
       }
       Write-Host "Moved backup: $target → $backupPath"

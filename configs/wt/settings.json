@@ -32,7 +32,7 @@
         "defaults": 
         {
             "colorScheme": "Fluent Design",
-            "cursorShape": "bar",
+            "cursorShape": "filledBox",
             "font": 
             {
                 "face": "JetBrainsMono Nerd Font"
