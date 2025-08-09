@@ -6,6 +6,7 @@ Register-EngineEvent PowerShell.OnIdle -Action {
 } | Out-Null
 
 # Prompt
+
 function Prompt {
     # Helper: shorten long paths, keep last 3 folders max
     function Shorten-Path($path, $maxParts = 1) {
@@ -36,7 +37,7 @@ function Prompt {
     $colorIcon = [ConsoleColor]::Red
     $colorPath = [ConsoleColor]::White
     $colorBranch = [ConsoleColor]::Green
-    $colorPrompt = [ConsoleColor]::Magenta
+    $colorPrompt = [ConsoleColor]::Red
 
     # Write status bar line
     Write-Host (" ") -NoNewline -ForegroundColor $colorIcon -BackgroundColor Black
@@ -46,10 +47,10 @@ function Prompt {
 
     # Write prompt sign
     Write-Host "❯" -NoNewline -ForegroundColor $colorPrompt
-
     return " "
 }
 
+Set-PSReadLineOption -ContinuationPrompt "❯" 
 
 # Aliases for convenience
 function lt {
