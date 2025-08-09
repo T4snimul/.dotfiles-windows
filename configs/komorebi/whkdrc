@@ -47,7 +47,7 @@ alt + shift + oem_minus : komorebic resize-axis vertical decrease
 
 # Manipulate windows
 alt + t                 : komorebic toggle-float
-alt + z                 : komorebic toggle-monocle
+alt + f                 : komorebic toggle-monocle
 
 # Window manager options
 alt + shift + r         : komorebic retile
@@ -76,3 +76,5 @@ alt + shift + 5         : komorebic move-to-workspace 4
 alt + shift + 6         : komorebic move-to-workspace 5
 alt + shift + 7         : komorebic move-to-workspace 6
 alt + shift + 8         : komorebic move-to-workspace 7
+alt + e                 : komorebic cycle-workspace next
+alt + w                 : komorebic cycle-workspace previous

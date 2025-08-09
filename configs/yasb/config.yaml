@@ -2,9 +2,10 @@ watch_stylesheet: true
 watch_config: true
 debug: false
 komorebi:
-  start_command: "komorebic start --whkd"
-  stop_command: "komorebic stop --whkd"
-  reload_command: "komorebic stop --whkd && komorebic start --whkd"
+  start_command: "komorebic start; Start-Process whkd -WindowStyle Hidden"
+  stop_command: "komorebic stop ; taskkill /f /im whkd.exe"
+  reload_command: "komorebic stop ; taskkill /f /im whkd.exe; komorebic start; Start-Process whkd -WindowStyle Hidden"
+# ;  
 bars:
   primary-bar:
     enabled: true
