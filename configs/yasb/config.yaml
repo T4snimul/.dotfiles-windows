@@ -63,7 +63,7 @@ widgets:
       label_default_name: ""
       label_zero_index: false
       hide_empty_workspaces: true 
-      hide_if_offline: true
+      hide_if_offline: false
       animation: true
       container_padding:
         top: 0

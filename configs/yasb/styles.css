@@ -97,39 +97,36 @@
 
 .komorebi-workspaces .ws-btn,
 .glazewm-workspaces .ws-btn {
-    color: transparent;
-    width: 10px;
-    height: 10px;
+    color: var(--foreground-color); 
+    width: 20px;
+    height: 14px;
+    border-radius: 7px;
     background-color: var(--active-color);
-    border-radius: 5px;
     margin: 0 2px;
-    font-size: 1px;
+    font-size: 11px;
 }
-
-.komorebi-workspaces .ws-btn:hover,
-.glazewm-workspaces .ws-btn:hover {
-    color: var(--accent-color);
-    background-color: var(--hover-color);
+.komorebi-workspaces .ws-btn.populated:hover {
+    background-color: var(--inactive-color);
 }
 
 .komorebi-workspaces .ws-btn.populated,
 .glazewm-workspaces .ws-btn.populated {
-    width: 10px;
-    height: 10px;
-    background-color: var(--active-color);
-    border-radius: 5px;
+    width: 20px;
+    height: 14px;
+    border-radius: 7px;
+    background-color: var(--icon-color);
     margin: 0 2px;
-    font-size: 1px;
+    font-size: 11px;
 }
 
 .komorebi-workspaces .ws-btn.active,
 .glazewm-workspaces .ws-btn.active_populated,
 .glazewm-workspaces .ws-btn.active_empty {
-    color: transparent;
-    background-color: var(--icon-color);
-    width: 36px;
-    height: 10px;
-    border-radius: 5px;
+    color: var(--foreground-color);
+    background-color: var(--active-color);
+    border-radius: 7px;
+    width: 40px;
+    height: 14px;
 }
 
 /* --- Glazewm Tiling Direction --- */
