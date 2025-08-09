@@ -1,7 +1,9 @@
 # PowerShell Profile Script
 
-# Imports
-Import-Module PSReadLine -ErrorAction SilentlyContinue
+# Menu
+Register-EngineEvent PowerShell.OnIdle -Action {
+    Set-PSReadLineKeyHandler -Key Tab -Function MenuComplete
+} | Out-Null
 
 # Prompt
 function Prompt {
@@ -11,9 +13,8 @@ function Prompt {
         if ($parts.Length -le $maxParts) { return $path }
         $shortParts = @()
         $skipCount = $parts.Length - $maxParts
-        $shortParts += '...'
         $shortParts += $parts[$skipCount..($parts.Length - 1)]
-        return ($shortParts -join '\')
+        return ($shortParts)
     }
 
     # Get current path, shorten if needed
@@ -32,25 +33,23 @@ function Prompt {
     }
 
     # Colors
-    $colorPath = [ConsoleColor]::Cyan
-    $colorTime = [ConsoleColor]::Yellow
+    $colorIcon = [ConsoleColor]::Red
+    $colorPath = [ConsoleColor]::White
     $colorBranch = [ConsoleColor]::Green
-    $colorMode = [ConsoleColor]::Magenta
-    $colorPrompt = [ConsoleColor]::White
+    $colorPrompt = [ConsoleColor]::Magenta
 
     # Write status bar line
-    Write-Host (" " + $shortPath + $branch + " ") -NoNewline -ForegroundColor $colorPath -BackgroundColor Black
+    Write-Host (" ") -NoNewline -ForegroundColor $colorIcon -BackgroundColor Black
+    Write-Host ($shortPath) -NoNewline -ForegroundColor $colorPath -BackgroundColor Black
+    Write-Host ($branch + " ") -NoNewline -ForegroundColor $colorBranch -BackgroundColor Black
     Write-Host ""
 
     # Write prompt sign
-    Write-Host "❯ " -NoNewline -ForegroundColor $colorPrompt
+    Write-Host "❯" -NoNewline -ForegroundColor $colorPrompt
 
     return " "
 }
 
-
-# Keybinding for menu autocomplete (Ctrl+J)
-Set-PSReadLineKeyHandler -Key Tab -Function MenuComplete
 
 # Aliases for convenience
 function lt {
