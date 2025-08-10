@@ -14,11 +14,6 @@
     "unfocused_border": "Base03",
     "bar_accent": "Base0D"
   },
-  "ignore_rules": [
-    "kind": "Title",
-    "id": "Run",
-    "matching_strategy": "Equals"
-  ],
   "monitors": [
     {
       "workspaces": [
