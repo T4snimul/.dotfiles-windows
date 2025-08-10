@@ -37,7 +37,7 @@
             {
                 "face": "JetBrainsMono Nerd Font"
             },
-            "opacity": 85,
+            "opacity": 60,
             "startingDirectory": "%USERPROFILE%",
             "useAcrylic": true
         },
