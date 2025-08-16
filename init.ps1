@@ -21,6 +21,8 @@ $configMap = @{
   "$env:USERPROFILE\Documents\PowerShell\Microsoft.PowerShell_profile.ps1"                      = "$configDir\pwsh\Microsoft.PowerShell_profile.ps1"
   "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\Settings.json" = "$configDir\wt\settings.json"
   "$env:USERPROFILE\.config\starship.toml"                                                      = "$configDir\starship\starship.toml"
+  "$env:LOCALAPPDATA\Arduino15\arduino-cli.yaml"                                                = "$configDir\arduino-cli\arduino-cli.yaml"
+  "$env:LOCALAPPDATA\nvim\"                                                                      = "$configDir\nvim\"
 }
 
 foreach ($target in $configMap.Keys) {

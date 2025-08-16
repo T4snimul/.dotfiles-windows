@@ -34,7 +34,7 @@ bars:
     widgets:
       left: ["power_menu","komorebi_workspaces","active_window"]
       center: ["taskbar"]
-      right: ["systray","brightness","wifi","battery","volume", "clock"]
+      right: ["systray","brightness","traffic", "wifi", "bluetooth", "battery","volume", "clock"]
 widgets:
   active_window:
     type: "yasb.active_window.ActiveWindowWidget"
@@ -188,12 +188,48 @@ widgets:
         left: 8
         bottom: 0
         right: 8
+  bluetooth:
+    type: "yasb.bluetooth.BluetoothWidget"
+    options:
+      label: "<span>{icon}</span>"
+      label_alt: "{device_name}"
+      label_no_device: "No devices connected"
+      label_device_separator: ", "
+      label_shadow:
+        enabled: true
+        color: black
+        radius: 3
+        offset: [1,1]
+      max_length: 10
+      max_length_ellipsis: "..."
+      icons:
+        bluetooth_on: "\udb80\udcaf"
+        bluetooth_off: "\udb80\udcb2"
+        bluetooth_connected: "\udb80\udcb2"
+      device_aliases:
+        - name: "T5.0"
+          alias: "\uf025"
+    callbacks:
+      on_left: "toggle_label"
+      on_right: "exec cmd.exe /c start ms-settings:bluetooth"
+  traffic:
+    type: "yasb.traffic.TrafficWidget"
+    options:
+      label: "\uf012"
+      label_alt: "↓ {download_speed} | ↑ {upload_speed}"
+      speed_unit: "bytes"
+      update_interval: 1000
+      interface: "Wi-Fi"
+      hide_if_offline: true
+    callbacks:
+      on_left: "toggle_label"
+      on_right: "toggle_label"
   wifi:
     type: "yasb.wifi.WifiWidget"
     options:
       label: "<span>{wifi_icon}</span>"
       label_alt: "{wifi_name} {wifi_strength}%"
-      update_interval: 5000
+      update_interval: 1000
       callbacks:
         on_left: "toggle_label"
         on_middle: "exec cmd.exe /c start ms-settings:network"
@@ -226,58 +262,6 @@ widgets:
       show_unpinned: false
       show_battery: false
       show_volume: false
-  media:
-    type: "yasb.media.MediaWidget"
-    options:
-      label: "{title} - {artist}"
-      label_alt: "{title}"
-      hide_empty: true
-      callbacks:
-        on_left: "toggle_label"
-        on_middle: "do_nothing"
-        on_right: "do_nothing"
-      max_field_size:
-        label: 20
-        label_alt: 30
-      show_thumbnail: true
-      controls_only: false
-      controls_left: false
-      controls_hide: false
-      thumbnail_alpha: 80
-      thumbnail_padding: 8
-      thumbnail_corner_radius: 16
-      icons:
-        prev_track: "\udb81\udcae"
-        next_track: "\udb81\udcad"
-        play: "\udb81\udc0a"
-        pause: "\udb80\udfe4"
-  apps:
-    type: "yasb.applications.ApplicationsWidget"
-    options:
-      container_padding:
-        top: 0
-        left: 8
-        bottom: 0
-        right: 8
-      label: "{data}"
-      app_list:
-        - { icon: "\uf0a2", launch: "notification_center" }
-        - { icon: "\uf002", launch: "search" }
-        - { icon: "\uf437", launch: "cmd /c Taskmgr" }
-        - { icon: "\uf489", launch: "wezterm-gui" }
-  github:
-    type: "yasb.github.GithubWidget"
-    options:
-      label: "<span>\ueba1</span>"
-      label_alt: "Notifications {data}"
-      token: env
-      max_notification: 30
-      only_unread: false
-      max_field_size: 54
-      menu_width: 400
-      menu_height: 400
-      menu_offset: 240
-      update_interval: 60
   taskbar:
     type: "yasb.taskbar.TaskbarWidget"
     options:
@@ -292,23 +276,3 @@ widgets:
         left: 0
         bottom: 0
         right: 0
-  wallpapers:
-    type: "yasb.wallpapers.WallpapersWidget"
-    options:
-      label: "<span>\uf03e</span>"
-      image_path: "C:\\Wallpapers"
-      change_automatically: false 
-      update_interval: 60 
-      gallery:
-        enabled: true 
-        blur: true
-        image_width: 220
-        image_per_page: 8
-        show_buttons: false
-        orientation: "portrait"
-        image_spacing: 8
-        lazy_load: true
-        lazy_load_delay: 80
-        lazy_load_fadein: 400
-        image_corner_radius: 20
-        enable_cache: false
