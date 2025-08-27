@@ -29,7 +29,8 @@
 
 {
   // ========== 1. Editing Experience ==========
-  "editor.fontSize": 22, // Bigger, comfy font size
+  "editor.fontSize": 20, // Bigger, comfy font size
+  "editor.lineHeight": 1.15,
   "editor.lineNumbers": "relative", // Relative line numbers for better motion
   "editor.autoIndent": "full", // Better auto-indent on paste
   "editor.formatOnSave": true, // Let Prettier handle the mess
@@ -116,6 +117,7 @@
   "vim.highlightedyank.textColor": "hsl(282, 43%, 70%)",
   "vim.highlightedyank.duration": 300,
   // ========== Added from UI ==========
-  "git.openRepositoryInParentFolders": "never"
+  "git.openRepositoryInParentFolders": "never",
+  "workbench.activityBar.location": "hidden"
   // ========== End ==========
 }

@@ -285,7 +285,6 @@
 }
 
 .taskbar-widget .app-icon {
-    padding: 0 6px;
     border: none;
     margin: 0;
     display: flex;
