@@ -13,10 +13,9 @@ return {
     vim.cmd.colorscheme("catppuccin")
 
     -- Make cursor line transparent
-    local colors = require("catppuccin.palettes").get_palette()
-
-    vim.cmd(string.format("hi CursorLine guibg=%s ctermbg=NONE", colors.surface0))
-    vim.cmd(string.format("hi CursorLineNr guibg=%s ctermbg=NONE guifg=%s", colors.surface0, colors.text))
+    vim.cmd [[
+      hi CursorLine guibg=#363a4f
+    ]]
   end,
 }
 
