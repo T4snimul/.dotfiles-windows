@@ -6,47 +6,26 @@ Register-EngineEvent PowerShell.OnIdle -Action {
 } | Out-Null
 
 # Prompt
-
 function Prompt {
-    # Helper: shorten long paths, keep last 3 folders max
-    function Shorten-Path($path, $maxParts = 1) {
-        $parts = $path -split '[\\/]+'
-        if ($parts.Length -le $maxParts) { return $path }
-        $shortParts = @()
-        $skipCount = $parts.Length - $maxParts
-        $shortParts += $parts[$skipCount..($parts.Length - 1)]
-        return ($shortParts)
-    }
 
-    # Get current path, shorten if needed
-    $path = (Get-Location).Path
-    $shortPath = Shorten-Path $path
+    # Get current folder name only
+    $folder = Split-Path -Leaf (Get-Location)
 
-    # Get Git branch if in git repo
-    $branch = ''
-    if (Get-Command git -ErrorAction SilentlyContinue) {
-        try {
-            $branchName = (& git rev-parse --abbrev-ref HEAD 2>$null)
-            if ($branchName -and $branchName -ne 'HEAD') {
-                $branch = " [$branchName]"
-            }
-        } catch {}
-    }
-
-    # Colors
-    $colorIcon = [ConsoleColor]::Red
-    $colorPath = [ConsoleColor]::White
-    $colorBranch = [ConsoleColor]::Green
+    # Color settings
+    $colorFolder = [ConsoleColor]::White
     $colorPrompt = [ConsoleColor]::Red
+    $colorIcon = [ConsoleColor]::Red
+    $background = [ConsoleColor]::Black
 
-    # Write status bar line
-    Write-Host (" ") -NoNewline -ForegroundColor $colorIcon -BackgroundColor Black
-    Write-Host ($shortPath) -NoNewline -ForegroundColor $colorPath -BackgroundColor Black
-    Write-Host ($branch + " ") -NoNewline -ForegroundColor $colorBranch -BackgroundColor Black
-    Write-Host ""
+    # Powerline icon
+    Write-Host (" ") -NoNewline -ForegroundColor $colorIcon -BackgroundColor $background
 
-    # Write prompt sign
+    # Folder name
+    Write-Host ($folder + " ") -ForegroundColor $colorFolder -BackgroundColor $background
+
+    # Prompt symbol
     Write-Host "❯" -NoNewline -ForegroundColor $colorPrompt
+
     return " "
 }
 
@@ -67,6 +46,10 @@ Set-PSReadLineOption -PredictionSource History
 
 # Optional: Increase history size
 Set-PSReadLineOption -MaximumHistoryCount 4096
+
+# Zoxide
+Invoke-Expression (& { (zoxide init powershell | Out-String) })
+
 
 # End of profile
 

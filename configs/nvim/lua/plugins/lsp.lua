@@ -1,6 +1,7 @@
-local lspconfig = require("lspconfig")
-
--- Setup clagd for Arduino (C/C++)
-lspconfig.clangd.setup {
-  cmd = { "clangd" },
+return {
+  "neovim/nvim-lspconfig",
+  config = function()
+    local lspconfig = require("lspconfig")
+    lspconfig.clangd.setup { cmd = { "clangd" } }
+  end,
 }
