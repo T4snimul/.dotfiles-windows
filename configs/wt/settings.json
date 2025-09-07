@@ -9,8 +9,56 @@
     "keybindings": 
     [
         {
+            "id": null,
+            "keys": "ctrl+shift+v"
+        },
+        {
+            "id": null,
+            "keys": "alt+left"
+        },
+        {
+            "id": null,
+            "keys": "k"
+        },
+        {
+            "id": null,
+            "keys": "h"
+        },
+        {
+            "id": null,
+            "keys": "b"
+        },
+        {
+            "id": null,
+            "keys": "l"
+        },
+        {
+            "id": null,
+            "keys": "j"
+        },
+        {
+            "id": null,
+            "keys": "w"
+        },
+        {
+            "id": "Terminal.CopyToClipboard",
+            "keys": "y"
+        },
+        {
+            "id": null,
+            "keys": "esc"
+        },
+        {
             "id": "Terminal.CopyToClipboard",
             "keys": "ctrl+c"
+        },
+        {
+            "id": null,
+            "keys": "alt+right"
+        },
+        {
+            "id": "Terminal.MoveFocusLeft",
+            "keys": "ctrl+h"
         },
         {
             "id": "Terminal.PasteFromClipboard",
@@ -19,6 +67,66 @@
         {
             "id": "Terminal.DuplicatePaneAuto",
             "keys": "alt+shift+d"
+        },
+        {
+            "id": "Terminal.MoveFocusRight",
+            "keys": "ctrl+l"
+        },
+        {
+            "id": "Terminal.MoveFocusDown",
+            "keys": "ctrl+j"
+        },
+        {
+            "id": null,
+            "keys": "alt+down"
+        },
+        {
+            "id": "Terminal.ScrollUp",
+            "keys": "ctrl+alt+k"
+        },
+        {
+            "id": "Terminal.MoveFocusUp",
+            "keys": "ctrl+k"
+        },
+        {
+            "id": null,
+            "keys": "alt+up"
+        },
+        {
+            "id": "Terminal.DuplicatePaneDown",
+            "keys": "ctrl+shift+j"
+        },
+        {
+            "id": null,
+            "keys": "alt+shift+minus"
+        },
+        {
+            "id": "Terminal.DuplicatePaneRight",
+            "keys": "ctrl+shift+l"
+        },
+        {
+            "id": null,
+            "keys": "alt+shift+plus"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+shift+up"
+        },
+        {
+            "id": "Terminal.ScrollDown",
+            "keys": "ctrl+alt+j"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+shift+down"
+        },
+        {
+            "id": "Terminal.ScrollToTop",
+            "keys": "ctrl+alt+g"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+shift+home"
         }
     ],
     "newTabMenu": 
@@ -113,9 +221,8 @@
             "yellow": "#C19C00"
         }
     ],
-    "tabSwitcherMode": "inOrder",
+    "tabSwitcherMode": "mru",
     "theme": "dark",
     "themes": [],
-    "useAcrylicInTabRow": true,
-    "windowingBehavior": "useAnyExisting"
+    "useAcrylicInTabRow": true
 }

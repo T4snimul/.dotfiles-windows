@@ -1,6 +1,28 @@
 [
-    {
-        "key": "ctrl+alt+,",
-        "command": "workbench.action.openSettingsJson"
-    }
+  {
+    "key": "ctrl+alt+,",
+    "command": "workbench.action.openSettingsJson"
+  },
+  // Navigate suggestions with Tab / Shift+Tab
+  {
+    "key": "tab",
+    "command": "selectNextSuggestion",
+    "when": "suggestWidgetVisible && textInputFocus"
+  },
+  {
+    "key": "shift+tab",
+    "command": "selectPrevSuggestion",
+    "when": "suggestWidgetVisible && textInputFocus"
+  },
+  // Navigate command pallate with Tab / Shift+Tab
+  {
+    "key": "tab",
+    "command": "workbench.action.quickOpenSelectNext",
+    "when": "inQuickOpen"
+  },
+  {
+    "key": "`",
+    "command": "workbench.action.quickOpenSelectPrevious",
+    "when": "inQuickOpen"
+  }
 ]

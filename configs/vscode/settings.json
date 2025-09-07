@@ -29,9 +29,11 @@
 
 {
   // ========== 1. Editing Experience ==========
-  "editor.fontSize": 20, // Bigger, comfy font size
-  "editor.lineHeight": 1.15,
-  "editor.lineNumbers": "relative", // Relative line numbers for better motion
+  "editor.fontSize": 18,
+  "editor.fontFamily": "JetBrains Mono",
+  "editor.lineHeight": 1.4,
+  "editor.lineNumbers": "relative",
+  "editor.fontLigatures": true,
   "editor.autoIndent": "full", // Better auto-indent on paste
   "editor.formatOnSave": true, // Let Prettier handle the mess
   "editor.formatOnPaste": true,
@@ -48,7 +50,8 @@
   "explorer.confirmDelete": false, // no delete confirm
   "files.trimTrailingWhitespace": true, // trim trailing spaces in files
   "files.insertFinalNewline": true, // add newline at EOF (End Of File)
-  "editor.renderLineHighlight": "all",
+  "editor.renderLineHighlight": "line",
+  "editor.glyphMargin": false,
   "editor.bracketPairColorization.enabled": true,
   "workbench.sideBar.location": "right",
   "workbench.editor.enablePreview": false,
@@ -75,12 +78,22 @@
 
   "editor.tokenColorCustomizations": {
     "[Ardent (contrast 0, chroma 0, lightness 1)]": {
-      "comments": "#4e525a", // Soft grey for comments
       "textMateRules": [
         {
           "scope": "support.type.property-name.json", // JSON keys
           "settings": {
             "foreground": "#E2725B" // Eye-pleasing terracotta red
+          }
+        },
+        {
+          "scope": [
+            "comment",
+            "punctuation.definition.comment",
+            "punctuation.definition.comment.cpp"
+          ],
+          "settings": {
+            "foreground": "#4e525a",
+            "fontStyle": "italic"
           }
         }
       ]
@@ -108,7 +121,8 @@
     { "before": ["j"], "after": ["g", "j"] },
     { "before": ["k"], "after": ["g", "k"] },
     { "before": ["<leader>", "y"], "after": ["\"", "+", "y"] },
-    { "before": ["<leader>", "p"], "after": ["\"", "+", "p"] }
+    { "before": ["<leader>", "p"], "after": ["\"", "+", "p"] }, // Paste after cursor
+    { "before": ["<leader>", "P"], "after": ["\"", "+", "P"] } // Paste before cursor
   ],
 
   // --- Highlight Yank Settings ---
@@ -116,8 +130,17 @@
   "vim.highlightedyank.color": "hsla(282, 25%, 80%, 0.3)",
   "vim.highlightedyank.textColor": "hsl(282, 43%, 70%)",
   "vim.highlightedyank.duration": 300,
+
+  // --- Vim Key Handling ---
+  "vim.handleKeys": {
+    "<C-b>": false
+  },
+
   // ========== Added from UI ==========
   "git.openRepositoryInParentFolders": "never",
-  "workbench.activityBar.location": "hidden"
+  "workbench.activityBar.location": "hidden",
+  "window.controlsStyle": "custom",
+  "window.titleBarStyle": "custom",
+  "animations.Install-Method": "Apc Customize UI++"
   // ========== End ==========
 }
