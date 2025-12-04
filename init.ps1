@@ -469,8 +469,9 @@ while ($continueLoop) {
     Write-Host "User: $currentUserName`n" -ForegroundColor DarkGray
 
     $key = [System.Console]::ReadKey($true)
+    $keyChar = $key.KeyChar.ToString().ToUpper()
 
-    switch ($key.Key) {
+    switch ($keyChar) {
       'D' { }
       'S' {
         if (-not (Test-WingetInstalled)) {
@@ -559,8 +560,9 @@ while ($continueLoop) {
   Write-Host ""
 
   $key = [System.Console]::ReadKey($true)
+  $keyChar = $key.KeyChar.ToString().ToUpper()
 
-  switch ($key.Key) {
+  switch ($keyChar) {
     'Q' {
       Write-Host "`nExiting.`n" -ForegroundColor Cyan
       $continueLoop = $false
