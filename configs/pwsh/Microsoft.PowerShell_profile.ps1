@@ -114,7 +114,8 @@ function Prompt {
     Write-Host "└─ " -NoNewline -ForegroundColor DarkGray
     Write-Host "❯ " -NoNewline -ForegroundColor Cyan
 
-    return ""
+    # Return empty string to suppress PS> prompt
+    return " "
 }
 
 # ===== Aliases for Convenience =====
