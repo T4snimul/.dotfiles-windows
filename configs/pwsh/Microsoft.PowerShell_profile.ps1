@@ -7,37 +7,19 @@ $global:__themeIsDark = $null
 
 # Detect terminal theme (light or dark)
 function Detect-TerminalTheme {
-    # Try Windows Terminal first - check registry for theme
-    try {
-        $wtSettings = @"
-        $env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json
-        "@.Trim()
-        
-        if (Test-Path $wtSettings) {
-            $content = Get-Content $wtSettings -Raw
-            # Simple check for default profile theme
-            if ($content -match '"theme":\s*"[^"]*[Dd]ark' -or $content -match '"colorScheme":\s*"[^"]*[Dd]ark') {
-                return $true
-            }
-            if ($content -match '"theme":\s*"[^"]*[Ll]ight' -or $content -match '"colorScheme":\s*"[^"]*[Ll]ight') {
-                return $false
-            }
-        }
-    } catch { }
-
-    # Check registry for Windows 10/11 UI theme setting
+    # Check Windows Registry for system theme
     try {
         $regPath = 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize'
         if (Test-Path $regPath) {
-            $regValue = Get-ItemProperty -Path $regPath -Name 'AppsUseLightTheme' -ErrorAction SilentlyContinue
-            if ($regValue) {
+            $appsLightTheme = (Get-ItemProperty -Path $regPath -Name 'AppsUseLightTheme' -ErrorAction SilentlyContinue).AppsUseLightTheme
+            if ($appsLightTheme -ne $null) {
                 # 0 = dark, 1 = light
-                return $regValue.AppsUseLightTheme -eq 0
+                return $appsLightTheme -eq 0
             }
         }
     } catch { }
 
-    # Default to dark theme if detection fails
+    # Default to dark theme
     return $true
 }
 
@@ -153,7 +135,7 @@ function Prompt {
     $folder = Split-Path -Leaf (Get-Location)
     $folder = if ([string]::IsNullOrEmpty($folder)) { "~" } else { $folder }
     $gitStatus = Get-GitStatus
-    
+
     # Get theme-appropriate colors
     $colors = Get-ThemeColors
 
