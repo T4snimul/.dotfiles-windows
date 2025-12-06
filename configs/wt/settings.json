@@ -135,7 +135,7 @@
   ],
   "profiles": {
     "defaults": {
-      "colorScheme": "DotfilesDark",
+      "colorScheme": "Fluent Design",
       "cursorShape": "filledBox",
       "font": {
         "face": "JetBrainsMono Nerd Font"
@@ -191,27 +191,27 @@
   },
   "schemes": [
     {
-      "background": "#0D0D0D",
-      "black": "#333333",
-      "blue": "#0066FF",
-      "brightBlack": "#666666",
-      "brightBlue": "#0099FF",
-      "brightCyan": "#00CCCC",
-      "brightGreen": "#00FF00",
-      "brightPurple": "#FF00FF",
-      "brightRed": "#FF0000",
-      "brightWhite": "#FFFFFF",
-      "brightYellow": "#FFFF00",
-      "cursorColor": "#00CCCC",
-      "cyan": "#00AAAA",
-      "foreground": "#CCCCCC",
-      "green": "#00AA00",
-      "name": "DotfilesDark",
-      "purple": "#AA00AA",
-      "red": "#AA0000",
-      "selectionBackground": "#333333",
+      "background": "#1E2228",
+      "black": "#5E5E5E",
+      "blue": "#0037DA",
+      "brightBlack": "#767676",
+      "brightBlue": "#3B78FF",
+      "brightCyan": "#61D6D6",
+      "brightGreen": "#16C60C",
+      "brightPurple": "#B4009E",
+      "brightRed": "#E74856",
+      "brightWhite": "#F2F2F2",
+      "brightYellow": "#F9F1A5",
+      "cursorColor": "#DCEBFA",
+      "cyan": "#3A96DD",
+      "foreground": "#EDEEF0",
+      "green": "#13A10E",
+      "name": "Fluent Design",
+      "purple": "#881798",
+      "red": "#C50F1F",
+      "selectionBackground": "#EDEEF0",
       "white": "#CCCCCC",
-      "yellow": "#AAAA00"
+      "yellow": "#C19C00"
     }
   ],
   "tabSwitcherMode": "mru",

@@ -1,58 +1,8 @@
-# PowerShell Profile Script - Optimized and Fast with Dynamic Theme Detection
+# PowerShell Profile Script - Clean and Optimized
 
 # Initialize stopwatch for performance tracking
 $global:__stopwatch = $null
 $global:__lastExecutionTime = 0
-$global:__themeIsDark = $null
-
-# Detect terminal theme (light or dark)
-function Detect-TerminalTheme {
-    # Check Windows Registry for system theme
-    try {
-        $regPath = 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize'
-        if (Test-Path $regPath) {
-            $appsLightTheme = (Get-ItemProperty -Path $regPath -Name 'AppsUseLightTheme' -ErrorAction SilentlyContinue).AppsUseLightTheme
-            if ($appsLightTheme -ne $null) {
-                # 0 = dark, 1 = light
-                return $appsLightTheme -eq 0
-            }
-        }
-    } catch { }
-
-    # Default to dark theme
-    return $true
-}
-
-# Get theme-appropriate colors
-function Get-ThemeColors {
-    if ($global:__themeIsDark -eq $null) {
-        $global:__themeIsDark = Detect-TerminalTheme
-    }
-
-    if ($global:__themeIsDark) {
-        # Dark theme colors
-        return @{
-            Border = [ConsoleColor]::DarkGray
-            Time = [ConsoleColor]::Cyan
-            Folder = [ConsoleColor]::White
-            DirtyGit = [ConsoleColor]::Yellow
-            CleanGit = [ConsoleColor]::Green
-            ExecTime = [ConsoleColor]::Magenta
-            Cursor = [ConsoleColor]::Cyan
-        }
-    } else {
-        # Light theme colors
-        return @{
-            Border = [ConsoleColor]::Gray
-            Time = [ConsoleColor]::Blue
-            Folder = [ConsoleColor]::Black
-            DirtyGit = [ConsoleColor]::Red
-            CleanGit = [ConsoleColor]::DarkGreen
-            ExecTime = [ConsoleColor]::Red
-            Cursor = [ConsoleColor]::Blue
-        }
-    }
-}
 
 # Fast PSReadLine setup
 Set-PSReadLineOption -EditMode Vi
@@ -136,20 +86,17 @@ function Prompt {
     $folder = if ([string]::IsNullOrEmpty($folder)) { "~" } else { $folder }
     $gitStatus = Get-GitStatus
 
-    # Get theme-appropriate colors
-    $colors = Get-ThemeColors
-
     # Build info line (top)
-    Write-Host "┌─ " -NoNewline -ForegroundColor $colors.Border
-    Write-Host "$time" -NoNewline -ForegroundColor $colors.Time
-    Write-Host " • " -NoNewline -ForegroundColor $colors.Border
-    Write-Host $folder -NoNewline -ForegroundColor $colors.Folder
+    Write-Host "┌─ " -NoNewline -ForegroundColor Cyan
+    Write-Host "$time" -NoNewline -ForegroundColor Cyan
+    Write-Host " • " -NoNewline -ForegroundColor DarkGray
+    Write-Host $folder -NoNewline -ForegroundColor White
 
     # Add git info if available
     if ($gitStatus) {
         $branch = $gitStatus.branch
         $isDirty = $gitStatus.dirty
-        $gitColor = if ($isDirty) { $colors.DirtyGit } else { $colors.CleanGit }
+        $gitColor = if ($isDirty) { "Yellow" } else { "Green" }
         $gitSymbol = if ($isDirty) { "◆" } else { "●" }
         Write-Host " $gitSymbol " -NoNewline -ForegroundColor $gitColor
         Write-Host $branch -NoNewline -ForegroundColor $gitColor
@@ -157,15 +104,15 @@ function Prompt {
 
     # Add execution time if available
     if ($global:__lastExecutionTime -gt 0) {
-        Write-Host " • " -NoNewline -ForegroundColor $colors.Border
-        Write-Host "$(Format-ExecutionTime -Milliseconds $global:__lastExecutionTime)" -NoNewline -ForegroundColor $colors.ExecTime
+        Write-Host " • " -NoNewline -ForegroundColor DarkGray
+        Write-Host "$(Format-ExecutionTime -Milliseconds $global:__lastExecutionTime)" -NoNewline -ForegroundColor Magenta
     }
 
     Write-Host ""
 
     # Build prompt line (bottom) with input cursor
-    Write-Host "└─ " -NoNewline -ForegroundColor $colors.Border
-    Write-Host "❯ " -NoNewline -ForegroundColor $colors.Cursor
+    Write-Host "└─ " -NoNewline -ForegroundColor DarkGray
+    Write-Host "❯ " -NoNewline -ForegroundColor Cyan
 
     # Return empty string to suppress PS> prompt
     return " "
