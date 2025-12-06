@@ -87,16 +87,16 @@ function Prompt {
     $gitStatus = Get-GitStatus
 
     # Build info line (top)
-    Write-Host "┌─ " -NoNewline -ForegroundColor DarkGray
-    Write-Host "$time" -NoNewline -ForegroundColor Cyan
-    Write-Host " • " -NoNewline -ForegroundColor DarkGray
-    Write-Host $folder -NoNewline -ForegroundColor White
+    Write-Host "┌─ " -NoNewline -ForegroundColor Gray
+    Write-Host "$time" -NoNewline -ForegroundColor Blue
+    Write-Host " • " -NoNewline -ForegroundColor Gray
+    Write-Host $folder -NoNewline -ForegroundColor Black
 
     # Add git info if available
     if ($gitStatus) {
         $branch = $gitStatus.branch
         $isDirty = $gitStatus.dirty
-        $gitColor = if ($isDirty) { [ConsoleColor]::Yellow } else { [ConsoleColor]::Green }
+        $gitColor = if ($isDirty) { [ConsoleColor]::Red } else { [ConsoleColor]::Green }
         $gitSymbol = if ($isDirty) { "◆" } else { "●" }
         Write-Host " $gitSymbol " -NoNewline -ForegroundColor $gitColor
         Write-Host $branch -NoNewline -ForegroundColor $gitColor
@@ -104,15 +104,15 @@ function Prompt {
 
     # Add execution time if available
     if ($global:__lastExecutionTime -gt 0) {
-        Write-Host " • " -NoNewline -ForegroundColor DarkGray
-        Write-Host "$(Format-ExecutionTime -Milliseconds $global:__lastExecutionTime)" -NoNewline -ForegroundColor Magenta
+        Write-Host " • " -NoNewline -ForegroundColor Gray
+        Write-Host "$(Format-ExecutionTime -Milliseconds $global:__lastExecutionTime)" -NoNewline -ForegroundColor Red
     }
 
     Write-Host ""
 
     # Build prompt line (bottom) with input cursor
-    Write-Host "└─ " -NoNewline -ForegroundColor DarkGray
-    Write-Host "❯ " -NoNewline -ForegroundColor Cyan
+    Write-Host "└─ " -NoNewline -ForegroundColor Gray
+    Write-Host "❯ " -NoNewline -ForegroundColor Blue
 
     # Return empty string to suppress PS> prompt
     return " "
