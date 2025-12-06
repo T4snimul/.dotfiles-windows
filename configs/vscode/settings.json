@@ -42,7 +42,7 @@
   "editor.fastScrollSensitivity": 5,
 
   "__SECTION_5_THEME_COLORS": "Theme, Icons, Customizations",
-  "workbench.colorTheme": "Ardent (contrast 0, chroma 0, lightness 1)",
+  "workbench.colorTheme": "Tokyo Night Light",
   "workbench.iconTheme": "symbols",
   "workbench.colorCustomizations": {
     "[Ardent (contrast 0, chroma 0, lightness 1)]": {

@@ -17,7 +17,12 @@ $logFile = "$dotfilesRoot\setup.log"
 
 # Get the actual current user (not the admin user if running as admin)
 $currentUser = [System.Security.Principal.WindowsIdentity]::GetCurrent().Name
-$currentUserName = $currentUser -split '\\' | Select-Object -Last 1
+$defaultUserName = $currentUser -split '\\' | Select-Object -Last 1
+
+# Prompt for username (optional - use default if not provided)
+Write-Host "`nEnter Windows username (press ENTER to use '$defaultUserName'): " -ForegroundColor Cyan -NoNewline
+$inputUserName = Read-Host
+$currentUserName = if ([string]::IsNullOrWhiteSpace($inputUserName)) { $defaultUserName } else { $inputUserName }
 $userProfilePath = "C:\Users\$currentUserName"
 
 # Initialize log file
