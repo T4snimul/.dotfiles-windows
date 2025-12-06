@@ -168,5 +168,7 @@
   "window.titleBarStyle": "custom",
   "window.controlsStyle": "custom",
   "explorer.confirmDragAndDrop": false,
-  "explorer.confirmDelete": false
+  "explorer.confirmDelete": false,
+  "gitlens.ai.model": "vscode",
+  "gitlens.ai.vscode.model": "copilot:gpt-4.1"
 }
