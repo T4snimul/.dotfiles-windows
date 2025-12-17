@@ -141,7 +141,7 @@
     {
         "defaults": 
         {
-            "colorScheme": "Fluent Design Light",
+            "colorScheme": "Fluent Design",
             "cursorShape": "filledBox",
             "font": 
             {
@@ -225,7 +225,7 @@
         {
             "background": "#F3F3F3",
             "black": "#0C0C0C",
-            "blue": "#0037DA",
+            "blue": "#5180DA",
             "brightBlack": "#808080",
             "brightBlue": "#0052CC",
             "brightCyan": "#0078D4",
@@ -247,7 +247,7 @@
         }
     ],
     "tabSwitcherMode": "mru",
-    "theme": "system",
+    "theme": "dark",
     "themes": [],
     "useAcrylicInTabRow": true
 }

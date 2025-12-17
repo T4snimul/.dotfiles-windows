@@ -42,7 +42,7 @@
   "editor.fastScrollSensitivity": 5,
 
   "__SECTION_5_THEME_COLORS": "Theme, Icons, Customizations",
-  "workbench.colorTheme": "Tokyo Night Light",
+  "workbench.colorTheme": "Ardent (contrast 0, chroma 1, lightness 1)",
   "workbench.iconTheme": "symbols",
   "workbench.colorCustomizations": {
     "[Ardent (contrast 0, chroma 0, lightness 1)]": {
@@ -170,5 +170,6 @@
   "explorer.confirmDragAndDrop": false,
   "explorer.confirmDelete": false,
   "gitlens.ai.model": "vscode",
-  "gitlens.ai.vscode.model": "copilot:gpt-4.1"
+  "gitlens.ai.vscode.model": "copilot:gpt-4.1",
+  "github.copilot.nextEditSuggestions.enabled": true
 }
