@@ -3,7 +3,7 @@
   "_description": "Organized VS Code settings (9 sections)",
 
   "__SECTION_1_EDITOR_ESSENTIALS": "Font, Indentation, Line Numbers",
-  "editor.fontFamily": "JetBrains Mono",
+  "editor.fontFamily": "JetBrainsMono Nerd Font Mono",
   "editor.fontSize": 18,
   "editor.lineHeight": 1.4,
   "editor.fontLigatures": true,
@@ -42,7 +42,7 @@
   "editor.fastScrollSensitivity": 5,
 
   "__SECTION_5_THEME_COLORS": "Theme, Icons, Customizations",
-  "workbench.colorTheme": "Ardent (contrast 0, chroma 1, lightness 1)",
+  "workbench.colorTheme": "Default Light+",
   "workbench.iconTheme": "symbols",
   "workbench.colorCustomizations": {
     "[Ardent (contrast 0, chroma 0, lightness 1)]": {
@@ -108,7 +108,8 @@
   "vim.highlightedyank.duration": 300,
   "vim.handleKeys": {
     "<C-b>": false,
-    "<C-p>": false
+    "<C-p>": false,
+    "<C-j>": false
   },
   "vim.normalModeKeyBindings": [
     {
@@ -171,5 +172,31 @@
   "explorer.confirmDelete": false,
   "gitlens.ai.model": "vscode",
   "gitlens.ai.vscode.model": "copilot:gpt-4.1",
-  "github.copilot.nextEditSuggestions.enabled": true
+  "github.copilot.nextEditSuggestions.enabled": true,
+  "chat.tools.terminal.autoApprove": {
+    "npm run build": true,
+    "npm run dev": true,
+    "dir": true,
+    "ForEach-Object": true,
+    "Join-String": true,
+    "Test-Path": true,
+    "Copy-Item": true,
+    "npm install": true,
+    "Get-Service": true,
+    "npx": true,
+    "Get-Command": true,
+    "npm run type-check": true,
+    "pkill": true,
+    "Get-NetTCPConnection": true,
+    "Set-Location": true,
+    "npm list": true,
+    "npm run lint": true,
+    "Get-FileHash": true
+  },
+  "terminal.integrated.cursorStyle": "underline",
+  "chat.editing.confirmEditRequestRemoval": false,
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "git.autofetch": true
 }
