@@ -1,9 +1,8 @@
-{
-  "_author": "Tasnimul Hasan",
+{ "_author": "Tasnimul Hasan",
   "_description": "Organized VS Code settings (9 sections)",
 
   "__SECTION_1_EDITOR_ESSENTIALS": "Font, Indentation, Line Numbers",
-  "editor.fontFamily": "JetBrains Mono",
+  "editor.fontFamily": "JetBrainsMono Nerd Font Mono",
   "editor.fontSize": 18,
   "editor.lineHeight": 1.4,
   "editor.fontLigatures": true,
@@ -42,7 +41,7 @@
   "editor.fastScrollSensitivity": 5,
 
   "__SECTION_5_THEME_COLORS": "Theme, Icons, Customizations",
-  "workbench.colorTheme": "Ardent (contrast 0, chroma 1, lightness 1)",
+  "workbench.colorTheme": "Ardent (contrast 0, chroma 0, lightness 1)",
   "workbench.iconTheme": "symbols",
   "workbench.colorCustomizations": {
     "[Ardent (contrast 0, chroma 0, lightness 1)]": {
@@ -108,7 +107,8 @@
   "vim.highlightedyank.duration": 300,
   "vim.handleKeys": {
     "<C-b>": false,
-    "<C-p>": false
+    "<C-p>": false,
+    "<C-j>": false
   },
   "vim.normalModeKeyBindings": [
     {
