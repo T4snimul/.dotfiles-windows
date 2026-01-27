@@ -1,4 +1,5 @@
-{ "_author": "Tasnimul Hasan",
+{
+  "_author": "Tasnimul Hasan",
 
   "__SECTION_1_EDITOR_ESSENTIALS": "Font, Indentation, Line Numbers",
   "editor.fontFamily": "JetBrainsMono Nerd Font Mono",
@@ -40,18 +41,16 @@
   "editor.fastScrollSensitivity": 5,
 
   "__SECTION_5_THEME_COLORS": "Theme, Icons, Customizations",
-<<<<<<< HEAD
-  "workbench.colorTheme": "Ardent (contrast 0, chroma 0, lightness 1)",
-=======
-  "workbench.colorTheme": "Default Light+",
->>>>>>> b1fae12808991736016445b7c5febc756590ab86
+  "window.autoDetectColorScheme": true,
+  "workbench.preferredDarkColorTheme": "Ardent (contrast 0, chroma 0, lightness 1)",
+  "workbench.preferredLightColorTheme": "Default Light+",
   "workbench.iconTheme": "symbols",
   "workbench.colorCustomizations": {
     "[Ardent (contrast 0, chroma 0, lightness 1)]": {
       "editorLineNumber.activeForeground": "#c193d4",
       "editorCursor.foreground": "#c193d4",
-      "editorCursor.background": "#0f0712"
-    }
+      "editorCursor.background": "#0f0712",
+    },
   },
   "editor.tokenColorCustomizations": {
     "[Ardent (contrast 0, chroma 0, lightness 1)]": {
@@ -60,45 +59,45 @@
           "name": "JSON property names",
           "scope": "support.type.property-name.json",
           "settings": {
-            "foreground": "#E2725B"
-          }
+            "foreground": "#E2725B",
+          },
         },
         {
           "name": "Comments",
           "scope": [
             "comment",
             "punctuation.definition.comment",
-            "punctuation.definition.comment.cpp"
+            "punctuation.definition.comment.cpp",
           ],
           "settings": {
             "foreground": "#4e525a",
-            "fontStyle": "italic"
-          }
-        }
-      ]
-    }
+            "fontStyle": "italic",
+          },
+        },
+      ],
+    },
   },
 
   "__SECTION_6_LANGUAGE_FORMATTERS": "JSON, TypeScript, JavaScript",
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
   },
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
   },
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
   },
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
   },
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
   },
 
   "__SECTION_7_VIM_CONFIGURATION": "Keybindings, Highlighting",
@@ -111,56 +110,56 @@
   "vim.handleKeys": {
     "<C-b>": false,
     "<C-p>": false,
-    "<C-j>": false
+    "<C-j>": false,
   },
   "vim.normalModeKeyBindings": [
     {
       "before": ["j"],
       "after": ["g", "j"],
-      "description": "Move down (wrap-aware)"
+      "description": "Move down (wrap-aware)",
     },
     {
       "before": ["k"],
       "after": ["g", "k"],
-      "description": "Move up (wrap-aware)"
+      "description": "Move up (wrap-aware)",
     },
     {
       "before": ["<leader>", "y"],
       "after": ["\"", "+", "y", "y"],
-      "description": "Yank line to system clipboard"
+      "description": "Yank line to system clipboard",
     },
     {
       "before": ["<leader>", "p"],
       "after": ["\"", "+", "p"],
-      "description": "Paste from clipboard after"
-    }
+      "description": "Paste from clipboard after",
+    },
   ],
   "vim.visualModeKeyBindings": [
     {
       "before": ["j"],
       "after": ["g", "j"],
-      "description": "Move down (wrap-aware)"
+      "description": "Move down (wrap-aware)",
     },
     {
       "before": ["k"],
       "after": ["g", "k"],
-      "description": "Move up (wrap-aware)"
+      "description": "Move up (wrap-aware)",
     },
     {
       "before": ["<leader>", "y"],
       "after": ["\"", "+", "y"],
-      "description": "Yank selection to clipboard"
+      "description": "Yank selection to clipboard",
     },
     {
       "before": ["<leader>", "p"],
       "after": ["\"", "+", "p"],
-      "description": "Paste from clipboard after"
+      "description": "Paste from clipboard after",
     },
     {
       "before": ["<leader>", "P"],
       "after": ["\"", "+", "P"],
-      "description": "Paste from clipboard before"
-    }
+      "description": "Paste from clipboard before",
+    },
   ],
 
   "__SECTION_8_TERMINAL_GIT": "Git & Terminal Configuration",
@@ -193,12 +192,12 @@
     "Set-Location": true,
     "npm list": true,
     "npm run lint": true,
-    "Get-FileHash": true
+    "Get-FileHash": true,
   },
   "terminal.integrated.cursorStyle": "underline",
   "chat.editing.confirmEditRequestRemoval": false,
   "[javascriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
-  "git.autofetch": true
+  "git.autofetch": true,
 }
