@@ -26,7 +26,7 @@
   "workbench.startupEditor": "none",
   "workbench.editor.enablePreview": false,
   "workbench.sideBar.location": "right",
-  "workbench.activityBar.location": "hidden",
+  "workbench.activityBar.location": "bottom",
   "editor.minimap.enabled": false,
   "breadcrumbs.enabled": false,
   "editor.stickyScroll.enabled": false,
