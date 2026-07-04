@@ -25,7 +25,12 @@
     "command": "workbench.action.quickOpenSelectPrevious",
     "when": "inQuickOpen",
   },
-  // New File in Explorer
+  // Explorer
+  {
+    "key": "ctrl+shift+n",
+    "command": "explorer.newFolder",
+    "when": "workbench.explorer.fileView.active",
+  },
   {
     "key": "ctrl+n",
     "command": "explorer.newFile",

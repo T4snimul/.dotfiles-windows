@@ -16,7 +16,6 @@
   "files.autoSave": "onWindowChange",
   "files.trimTrailingWhitespace": true,
   "files.insertFinalNewline": true,
-  "editor.formatOnSave": true,
   "editor.formatOnPaste": true,
   "editor.trimAutoWhitespace": true,
   "editor.renderWhitespace": "boundary",
@@ -43,7 +42,7 @@
   "__SECTION_5_THEME_COLORS": "Theme, Icons, Customizations",
   "window.autoDetectColorScheme": true,
   "workbench.preferredDarkColorTheme": "Ardent (contrast 0, chroma 0, lightness 1)",
-  "workbench.preferredLightColorTheme": "Light+",
+  "workbench.preferredLightColorTheme": "Light Modern",
   "workbench.iconTheme": "symbols",
   "workbench.colorCustomizations": {
     "[Ardent (contrast 0, chroma 0, lightness 1)]": {
@@ -183,7 +182,6 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "js/ts.updateImportsOnFileMove.enabled": "always",
-  "chat.viewSessions.orientation": "stacked",
   "github.copilot.nextEditSuggestions.enabled": false,
   "github.copilot.enable": {
     "*": false,
@@ -194,4 +192,7 @@
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "editor.formatOnSave": true,
+  "chat.viewSessions.orientation": "stacked",
 }

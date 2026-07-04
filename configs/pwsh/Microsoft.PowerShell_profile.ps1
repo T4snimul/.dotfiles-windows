@@ -126,12 +126,6 @@ function la { Get-ChildItem -Force }
 function ll { Get-ChildItem -Force -Recurse }
 function cd.. { Set-Location .. }
 
-# Git shortcuts
-function gst { git status }
-function gad { git add . }
-function gcm { param([string]$msg); git commit -m $msg }
-function glog { git log --oneline -10 }
-
 # ===== Zoxide Integration =====
 Invoke-Expression (& { (zoxide init powershell | Out-String) })
 
